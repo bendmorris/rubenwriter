@@ -22,10 +22,10 @@ def render(render, font, *args):
 pygame.display.init()
 screen = pygame.display.set_mode((X,Y), (pygame.locals.NOFRAME | pygame.locals.FULLSCREEN))
 colors = {
-          'red': (255,0,0),
-          'blue': (0,0,255),
-          'green': (0,255,0),
-          'yellow': (255,255,0),
+          'red': (255,32,32),
+          'blue': (32,32,255),
+          'green': (32,255,32),
+          'yellow': (255,255,32),
           'white': (255,255,255),
           'grey': (128,128,128),
           }
