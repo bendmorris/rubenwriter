@@ -7,6 +7,7 @@ X,Y = 512,384
 LEN = 20
 FONT_SIZE = 40
 RANDOM_FONT = False
+RANDOM_COLOR = True
 
 def make_label(text, cx, cy):
     rect = text.get_rect()
@@ -44,10 +45,13 @@ default_font = (f for f in all_fonts if default_font.startswith(f)).next()
 if RANDOM_FONT: next_font = lambda: random.choice(all_fonts)
 else: next_font = lambda: default_font
 
+if RANDOM_COLOR: next_color = lambda: random.choice(all_colors)
+else: next_color = lambda: 'white'
+
 quit = False
 text = "RubenWriter"
 font = next_font()
-color = random.choice(all_colors)
+color = next_color()
 
 while not quit:
     screen.fill((0,0,0))
@@ -78,6 +82,6 @@ while not quit:
                 if char:
                     text = text[-(LEN-1):] + char
                     font = next_font()
-                    color = random.choice(all_colors)
+                    color = next_color()
             
 
