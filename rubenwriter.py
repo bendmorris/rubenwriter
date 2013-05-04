@@ -57,7 +57,7 @@ while not quit:
     screen.fill((0,0,0))
 
     # draw screen
-    rendered = fonts[font].render(text, True, colors[color])
+    rendered = fonts[font].render(text + '_', True, colors[color])
     screen.blit(*make_label(rendered,X/2,Y/2))
 
     rendered = fonts[font].render('CTRL+SHIFT+ESC to exit', True, colors[color])
