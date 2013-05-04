@@ -33,14 +33,13 @@ all_colors = colors.keys()
 
 pygame.font.init()
 all_fonts = pygame.font.get_fonts()
+default_font = pygame.font.get_default_font()
+default_font = (f for f in all_fonts if default_font.startswith(f)).next()
 fonts = {}
-for font in all_fonts:
+for font in (all_fonts if RANDOM_FONT else [default_font]):
     path = pygame.font.match_font(font)
     if path:
         fonts[font] = pygame.font.Font(path, FONT_SIZE)
-
-default_font = pygame.font.get_default_font()
-default_font = (f for f in all_fonts if default_font.startswith(f)).next()
 
 if RANDOM_FONT: next_font = lambda: random.choice(all_fonts)
 else: next_font = lambda: default_font
